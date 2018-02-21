@@ -85,22 +85,27 @@
 
   // handle selection of a new category (team/solo/all)
   function updateActivityList(event) {
-    if (event !== undefined && $(this).hasClass("selected")) {
+    // if (event !== undefined && $(this).hasClass("selected")) {
+    if (event != undefined && event.target.classList.contains("selected")) {
       // if the 'event' parameter is defined, then a tab has been clicked; if not, then this is the
       //   default case and the view simply needs to be updated
       // if the clicked tab has the class 'selected', then no need to change location of 'selected' class
       //   or change the DOM
       return true;
-    } else if (event !== undefined && !$(this).hasClass("selected")) {
+    } else if (
+      event !== undefined &&
+      !event.target.classList.contains("selected")
+    ) {
       // if the 'event' parameter is defined, then a tab has been clicked
       // if the clicked tab does not have the class 'selected', then location of 'selected' class must be added
       //   to the clicked element and removed from its siblings
-      category = $(this).attr("id");
+      category = event.target.id;
 
       document.querySelectorAll(".options div").forEach(el => {
         el.classList.remove("selected");
       });
-      $(this).addClass("selected");
+
+      event.target.classList.add("selected");
     }
 
     state.activities = [];

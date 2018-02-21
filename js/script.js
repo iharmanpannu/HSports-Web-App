@@ -29,25 +29,27 @@
   // get weather data when user clicks Forecast button, then add temp & conditions to view
   const foreCastButton = document.querySelector(".forecast-button");
 
-  foreCastButton.addEventListener("click", e => {
-    e.preventDefault();
-    const location = document.querySelector("#location").value;
-    document.querySelector("#location").value = "";
-    fetch(`${url + location}&appid=${apiKey}`)
-      .then(response => {
-        return response.json();
-      })
-      .then(response => updateUISuccess(response))
-      .catch(updateUIFailure());
-  });
+  foreCastButton.addEventListener(
+    "click",
+    e => {
+      e.preventDefault();
+      const location = document.querySelector("#location").value;
+      document.querySelector("#location").value = "";
+      fetch(`${url + location}&appid=${apiKey}`)
+        .then(response => {
+          return response.json();
+        })
+        .then(response => updateUISuccess(response))
+        .catch(updateUIFailure());
+    },
+    false
+  );
 
   // update list of sports when user selects a different category (solo/team/all)
-  //   const options = document.querySelectorAll(".options div");
-  //   for (let i = 0; i < options.length; i++) {
-  //     options[i].addEventListener("click", () => updateActivityList());
-  //     console.log(i);
-  //   }
-  $(".options div").on("click", updateActivityList);
+  const options = document.querySelectorAll(".options div");
+  options.forEach(el => {
+    el.addEventListener("click", updateActivityList, false);
+  });
 
   // handle ajax success
   function updateUISuccess(response) {

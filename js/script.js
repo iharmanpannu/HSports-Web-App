@@ -83,7 +83,7 @@
     let cityPara = document.createElement("p");
     let conditionsPara = document.createElement("p");
 
-    let iconImg = document.createElement.createElement("img");
+    let iconImg = document.createElement("img");
 
     updateActivityList();
   }
@@ -138,9 +138,12 @@
 
     let activitiesContainer = document.createElement("div");
     let list = document.createElement("ul");
-    statd.activities.forEach(() => {
+    state.activities.forEach(function() {
       let listItem = document.createElement("li");
+      console.log(listItem);
     });
+    console.log(activitiesContainer);
+    console.log(list);
     // ReactDOM.render(<Activities {...state} />, into);
 
     // function Activities(props) {

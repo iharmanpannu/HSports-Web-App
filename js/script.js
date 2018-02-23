@@ -144,8 +144,10 @@
 
     let activitiesContainer = document.createElement("div");
     let list = document.createElement("ul");
-    state.activities.forEach(function() {
+    state.activities.forEach(function(activity, index) {
       let listItem = document.createElement("li");
+      listItem.textContent = activity;
+      listItem.setAttribute("key", index);
     });
 
     // ReactDOM.render(<Activities {...state} />, into);
@@ -166,6 +168,8 @@
 
   // handle ajax failure
   function updateUIFailure() {
-    $(".conditions").text("Weather information unavailable");
+    // $(".conditions").text("Weather information unavailable");
+    const conditons = document.querySelector(".conditions");
+    conditons.textContent = "Weather information unavailable";
   }
 })();

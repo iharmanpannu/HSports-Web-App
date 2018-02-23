@@ -90,6 +90,16 @@
     let iconImg = document.createElement("img");
     iconImg.setAttribute("src", state.icon);
     iconImg.setAttribute("alt", state.condition);
+    conditionsPara.appendChild(iconImg);
+    container.appendChild(cityPara);
+    container.appendChild(conditionsPara);
+    // if else statement
+    const conditionExist = document.querySelector(".conditions div");
+    if (conditionExist) {
+      into.replaceChild(container, conditionExist);
+    } else {
+      into.appendChild(container);
+    }
 
     updateActivityList();
   }
@@ -140,36 +150,31 @@
     }
 
     const into = document.querySelector(".activities");
-    // const $into = $(".activities")[0];
 
     let activitiesContainer = document.createElement("div");
     let list = document.createElement("ul");
-    state.activities.forEach(function(activity, index) {
+    state.activities.forEach((activity, index) => {
       let listItem = document.createElement("li");
       listItem.textContent = activity;
       listItem.setAttribute("key", index);
+      list.appendChild(listItem);
     });
+    activitiesContainer.appendChild(list);
+    const contentExist = document.querySelector(".activities div");
+    if (contentExist) {
+      into.replaceChild(activitiesContainer, contentExist);
+    } else {
+      into.appendChild(activitiesContainer);
+    }
 
-    // ReactDOM.render(<Activities {...state} />, into);
-
-    // function Activities(props) {
-    //   const activitiesList = props.activities.map((activity, index) => (
-    //     <li key={index}>{activity}</li>
-    //   ));
-    //   return (
-    //     <div>
-    //       <ul>{activitiesList}</ul>
-    //     </div>
-    //   );
-    // }
-
-    $(".results").slideDown(300);
+    // $(".results").slideDown(300);
+    document.querySelector(".results").classList.add("open");
   }
 
   // handle ajax failure
   function updateUIFailure() {
     // $(".conditions").text("Weather information unavailable");
-    const conditons = document.querySelector(".conditions");
-    conditons.textContent = "Weather information unavailable";
+    document.querySelector(".conditions").textContent =
+      "Weather information unavailable";
   }
 })();

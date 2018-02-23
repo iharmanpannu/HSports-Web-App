@@ -136,6 +136,11 @@
     const into = document.querySelector(".activities");
     // const $into = $(".activities")[0];
 
+    let activitiesContainer = document.createElement("div");
+    let list = document.createElement("ul");
+    statd.activities.forEach(() => {
+      let listItem = document.createElement("li");
+    });
     // ReactDOM.render(<Activities {...state} />, into);
 
     // function Activities(props) {

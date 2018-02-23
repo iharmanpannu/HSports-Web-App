@@ -66,19 +66,24 @@
     };
 
     const into = document.querySelector(".conditions");
-    ReactDOM.render(<Forecast {...state} />, into);
+    // ReactDOM.render(<Forecast {...state} />, into);
 
-    function Forecast(props) {
-      return (
-        <div>
-          <p className="city">{props.city}</p>
-          <p>
-            {props.degCInt}&#176; C / {props.degFInt}&#176; F{" "}
-            <img src={props.icon} alt={props.condition} />
-          </p>
-        </div>
-      );
-    }
+    // function Forecast(props) {
+    //   return (
+    //     <div>
+    //       <p className="city">{props.city}</p>
+    //       <p>
+    //         {props.degCInt}&#176; C / {props.degFInt}&#176; F{" "}
+    //         <img src={props.icon} alt={props.condition} />
+    //       </p>
+    //     </div>
+    //   );
+    // }
+    let container = document.createElement("div");
+    let cityPara = document.createElement("p");
+    let conditionsPara = document.createElement("p");
+
+    let iconImg = document.createElement.createElement("img");
 
     updateActivityList();
   }
@@ -131,18 +136,18 @@
     const into = document.querySelector(".activities");
     // const $into = $(".activities")[0];
 
-    ReactDOM.render(<Activities {...state} />, into);
+    // ReactDOM.render(<Activities {...state} />, into);
 
-    function Activities(props) {
-      const activitiesList = props.activities.map((activity, index) => (
-        <li key={index}>{activity}</li>
-      ));
-      return (
-        <div>
-          <ul>{activitiesList}</ul>
-        </div>
-      );
-    }
+    // function Activities(props) {
+    //   const activitiesList = props.activities.map((activity, index) => (
+    //     <li key={index}>{activity}</li>
+    //   ));
+    //   return (
+    //     <div>
+    //       <ul>{activitiesList}</ul>
+    //     </div>
+    //   );
+    // }
 
     $(".results").slideDown(300);
   }

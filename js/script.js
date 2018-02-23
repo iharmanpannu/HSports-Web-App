@@ -84,19 +84,18 @@
     cityPara.setAttribute("class", "city");
     cityPara.textContent = state.city;
     let conditionsPara = document.createElement("p");
-    conditionsPara.textContent = `${state.degCInt} \u00B0 C / 
-    ${state.degFInt} \u00B0 F`;
-
-    let iconImg = document.createElement("img");
-    iconImg.setAttribute("src", state.icon);
-    iconImg.setAttribute("alt", state.condition);
-    conditionsPara.appendChild(iconImg);
+    //		conditionsPara.textContent = state.degCInt + '\u00B0 C / ' + state.degFInt + '\u00B0 F';
+    conditionsPara.textContent = `${state.degCInt}\u00B0 C / ${
+      state.degFInt
+    }\u00B0 F`;
+    let iconImage = document.createElement("img");
+    iconImage.setAttribute("src", state.icon);
+    iconImage.setAttribute("alt", state.condition);
+    conditionsPara.appendChild(iconImage);
     container.appendChild(cityPara);
     container.appendChild(conditionsPara);
-    // if else statement
-    const conditionExist = document.querySelector(".conditions div");
-    if (conditionExist) {
-      into.replaceChild(container, conditionExist);
+    if (document.querySelector(".conditions div")) {
+      into.replaceChild(container, document.querySelector(".conditions div"));
     } else {
       into.appendChild(container);
     }
@@ -153,27 +152,29 @@
 
     let activitiesContainer = document.createElement("div");
     let list = document.createElement("ul");
-    state.activities.forEach((activity, index) => {
+    state.activities.forEach(function(activity, index) {
       let listItem = document.createElement("li");
-      listItem.textContent = activity;
       listItem.setAttribute("key", index);
+      listItem.textContent = activity;
       list.appendChild(listItem);
     });
     activitiesContainer.appendChild(list);
-    const contentExist = document.querySelector(".activities div");
-    if (contentExist) {
-      into.replaceChild(activitiesContainer, contentExist);
+    if (document.querySelector(".activities div")) {
+      into.replaceChild(
+        activitiesContainer,
+        document.querySelector(".activities div")
+      );
     } else {
       into.appendChild(activitiesContainer);
     }
 
-    // $(".results").slideDown(300);
+    //		$('.results').slideDown(300);
     document.querySelector(".results").classList.add("open");
   }
 
   // handle ajax failure
   function updateUIFailure() {
-    // $(".conditions").text("Weather information unavailable");
+    //		$(".conditions").text("Weather information unavailable");
     document.querySelector(".conditions").textContent =
       "Weather information unavailable";
   }

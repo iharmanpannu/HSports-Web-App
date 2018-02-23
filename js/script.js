@@ -140,10 +140,8 @@
     let list = document.createElement("ul");
     state.activities.forEach(function() {
       let listItem = document.createElement("li");
-      console.log(listItem);
     });
-    console.log(activitiesContainer);
-    console.log(list);
+
     // ReactDOM.render(<Activities {...state} />, into);
 
     // function Activities(props) {

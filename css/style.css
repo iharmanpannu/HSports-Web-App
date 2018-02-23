@@ -1,7 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:700|Mukta+Malar");
+
+/* font-family: 'Mukta Malar', sans-serif;
+
+    font-family: 'Lato', sans-serif; */
+
 :root {
+  --colorWhite: #fff;
   --colorOrange: #f89156;
-  --colorCream: var(--colorCream)0;
+  --colorCream: #fff0e0;
   --colorGray: #333233;
+
+  --fontHeadings: "Lato", sans-serif;
+  --fontNormal: "Mukta Malar", sans-serif;
 }
 
 html {
@@ -20,7 +30,7 @@ body {
   padding: 0;
   color: var(--colorGray);
   background-color: var(--colorCream);
-  font-family: Raleway, Helvetica, Arial, sans-serif;
+  font-family: var(--fontNormal);
   font-size: 1.8rem;
   line-height: 160%;
   font-weight: 300;
@@ -40,8 +50,8 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  font-family: Raleway, Helvetica, Arial, sans-serif;
-  color: var(--colorGray);
+  font-family: var(--fontHeadings);
+  color: var(--colorOrange);
 }
 
 img {
@@ -51,7 +61,7 @@ img {
 
 a {
   font-weight: 700;
-  color: #d14348;
+  color: var(--colorOrange);
 }
 
 a:focus,
@@ -154,17 +164,17 @@ em {
 
 .nav .nav-elements .navbar a {
   font-weight: 600;
-  color: var(--colorCream);
+  color: var(--colorWhite);
   text-decoration: none;
   padding: 0 1rem;
-  -webkit-transition: 1s ease-out;
-  transition: 1s ease-out;
+  -webkit-transition: 500ms ease-out;
+  transition: 500ms ease-out;
 }
 
 .nav .nav-elements .navbar a:after {
   content: "";
   display: block;
-  height: 5px;
+  height: 4px;
   width: 0;
   margin: 0 0.5rem;
   -webkit-transition: width 0.3s ease-out, background-color 0.3s ease-out;
@@ -177,7 +187,7 @@ em {
 
 .nav .nav-elements .navbar a:hover:after {
   width: 100%;
-  background: var(--colorCream);
+  background: var(--colorWhite);
 }
 
 .nav .nav-elements .forecast {
@@ -296,15 +306,17 @@ em {
 }
 
 .nav .nav-elements .forecast .results .options div:hover {
-  background-color: var(--colorCream);
+  background-color: var(--colorGray);
+  color: var(--colorWhite);
 }
 
 .nav .nav-elements .forecast .results .options .selected {
-  background-color: var(--colorGray);
+  background-color: var(--colorOrange);
 }
 
 .nav .nav-elements .forecast .results .options .selected:hover {
-  background-color: var(--colorGray);
+  background-color: var(--colorOrange);
+  color: var(--colorGray);
 }
 
 .nav .nav-elements .forecast .results .activities {
@@ -436,9 +448,9 @@ em {
   background-color: var(--colorCream);
 }
 
-#history .headline {
+/* #history .headline {
   color: var(--colorGray);
-}
+} */
 
 #products .imageheader {
   background: -webkit-linear-gradient(top, transparent, transparent),
@@ -553,11 +565,9 @@ em {
 
 /* products*/
 
-#guarantee {
-  color: var(--colorOrange);
+/* #guarantee {
   font-size: 2rem;
-  background-color: var(--colorCream);
-}
+} */
 
 #guarantee .imageheader {
   background: -webkit-linear-gradient(top, transparent, var(--colorGray)),
@@ -570,14 +580,6 @@ em {
   height: 100vh;
   max-height: 60vh;
 }
-
-/* #guarantee .headline {
-  color: #f5da6a;
-} */
-
-/* #guarantee a {
-  color: #d2d651;
-} */
 
 #people {
   background-color: #fff0e0;
@@ -596,10 +598,10 @@ em {
   max-height: 40vh;
 }
 
-#people .headline {
+/* #people .headline {
   color: var(--colorCream);
   padding-bottom: 2rem;
-}
+} */
 
 #people .people-cards .person-card {
   background: hsla(0, 0%, 100%, 0.2);
@@ -626,7 +628,7 @@ em {
 }
 
 #people .people-cards .person-card .card-info .card-title {
-  color: hsla(0, 0%, 100%, 0.6);
+  color: #5858588e;
   font-size: 1.4rem;
   line-height: 100%;
 }

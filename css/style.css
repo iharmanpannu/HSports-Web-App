@@ -242,19 +242,20 @@ em {
 }
 
 .nav .nav-elements .forecast .results {
+  /*    display: none; */
   height: auto;
   max-height: 0;
   overflow-y: hidden;
-  transition: max-height 300ms ease-out;
-  /* display: none; */
+  transition: max-height 0.3s ease-out;
 }
 
 .nav .nav-elements .forecast .open {
-  /* display: block; */
+  /*    display: block; */
+  max-height: 250px;
   border: 1px solid white;
   border-top: none;
-  max-height: 250px;
 }
+
 .nav .nav-elements .forecast .results .options {
   text-align: center;
   border-bottom: 1px solid white;

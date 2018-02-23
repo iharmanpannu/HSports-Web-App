@@ -1,6 +1,4 @@
-"use strict";
-
-(function() {
+(() => {
   const url = "http://api.openweathermap.org/data/2.5/weather?q=";
   const apiKey = "05e62f86576a85bc20cce0e46674216f"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
   const activities = {
@@ -32,7 +30,7 @@
   //	$('.forecast-button').click(function(e) {
   document.querySelector(".forecast-button").addEventListener(
     "click",
-    function(e) {
+    e => {
       e.preventDefault();
       //		const location = $('#location').val();
       const location = document.querySelector("#location").value;
@@ -46,14 +44,12 @@
 		});
 */
 
-      fetch(url + location + "&appid=" + apiKey)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(response) {
+      fetch(`${url + location}&appid=${apiKey}`)
+        .then(response => response.json())
+        .then(response => {
           updateUISuccess(response);
         })
-        .catch(function() {
+        .catch(() => {
           updateUIFailure();
         });
     },
@@ -62,7 +58,7 @@
 
   // update list of sports when user selects a different category (solo/team/all)
   //$('.options div').on('click', updateActivityList);
-  document.querySelectorAll(".options div").forEach(function(el) {
+  document.querySelectorAll(".options div").forEach(el => {
     el.addEventListener("click", updateActivityList, false);
   });
 
@@ -74,8 +70,7 @@
     const degFInt = Math.floor(degF);
     state = {
       condition: response.weather[0].main,
-      icon:
-        "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png",
+      icon: `http://openweathermap.org/img/w/${response.weather[0].icon}.png`,
       degCInt: Math.floor(degCInt),
       degFInt: Math.floor(degFInt),
       city: response.name
@@ -144,7 +139,7 @@
 
       //			$('.options div').removeClass('selected');
 
-      document.querySelectorAll(".options div").forEach(function(el) {
+      document.querySelectorAll(".options div").forEach(el => {
         el.classList.remove("selected");
       });
 
@@ -163,12 +158,12 @@
 
     function updateState(type) {
       if (category === "solo") {
-        state.activities.push(...activities["solo" + type]);
+        state.activities.push(...activities[`solo${type}`]);
       } else if (category === "team") {
-        state.activities.push(...activities["team" + type]);
+        state.activities.push(...activities[`team${type}`]);
       } else {
-        state.activities.push(...activities["solo" + type]);
-        state.activities.push(...activities["team" + type]);
+        state.activities.push(...activities[`solo${type}`]);
+        state.activities.push(...activities[`team${type}`]);
       }
     }
 
@@ -193,7 +188,7 @@
 
     let activitiesContainer = document.createElement("div");
     let list = document.createElement("ul");
-    state.activities.forEach(function(activity, index) {
+    state.activities.forEach((activity, index) => {
       let listItem = document.createElement("li");
       listItem.setAttribute("key", index);
       listItem.textContent = activity;

@@ -41,21 +41,21 @@ function _toConsumableArray(arr) {
 
   // get weather data when user clicks Forecast button, then add temp & conditions to view
   //	$('.forecast-button').click(function(e) {
-  document
-    .querySelector(".forecast-button")
-    .addEventListener("click", function(e) {
+  document.querySelector(".forecast-button").addEventListener(
+    "click",
+    function(e) {
       e.preventDefault();
       //		const location = $('#location').val();
       var location = document.querySelector("#location").value;
       //		$('#location').val('');
       document.querySelector("#location").value = "";
       /*
-  		$.get(url + location + '&appid=' + apiKey).done(function(response) {
-  			updateUISuccess(response);
-  		}).fail(function() {
-  			updateUIFailure();
-  		});
-  */
+    $.get(url + location + '&appid=' + apiKey).done(function(response) {
+    updateUISuccess(response);
+    }).fail(function() {
+    updateUIFailure();
+    });
+    */
 
       fetch(url + location + "&appid=" + apiKey)
         .then(function(response) {
@@ -67,7 +67,9 @@ function _toConsumableArray(arr) {
         .catch(function() {
           updateUIFailure();
         });
-    });
+    },
+    false
+  );
 
   // update list of sports when user selects a different category (solo/team/all)
   //$('.options div').on('click', updateActivityList);
@@ -97,17 +99,16 @@ function _toConsumableArray(arr) {
     //		ReactDOM.render(<Forecast {...state} />, into);
 
     /*
-  		function Forecast(props) {
-  			return (
-  				<div>
-  					<p className="city">{props.city}</p>
-  					<p>{props.degCInt}&#176; C / {props.degFInt}&#176; F <img src={props.icon} alt={props.condition} /></p>
-  				</div>
-  			)
-  		}
-  */
+    function Forecast(props) {
+    return (
+    <div>
+    	<p className="city">{props.city}</p>
+    	<p>{props.degCInt}&#176; C / {props.degFInt}&#176; F <img src={props.icon} alt={props.condition} /></p>
+    </div>
+    )
+    }
+    */
 
-    var fragment = document.createDocumentFragment();
     var container = document.createElement("div");
     var cityPara = document.createElement("p");
     cityPara.setAttribute("class", "city");
@@ -122,11 +123,10 @@ function _toConsumableArray(arr) {
     conditionsPara.appendChild(iconImage);
     container.appendChild(cityPara);
     container.appendChild(conditionsPara);
-    fragment.appendChild(container);
     if (document.querySelector(".conditions div")) {
-      into.replaceChild(fragment, document.querySelector(".conditions div"));
+      into.replaceChild(container, document.querySelector(".conditions div"));
     } else {
-      into.appendChild(fragment);
+      into.appendChild(container);
     }
 
     updateActivityList();
@@ -207,19 +207,18 @@ function _toConsumableArray(arr) {
     //		ReactDOM.render(<Activities {...state} />, into);
 
     /*
-  		function Activities(props) {
-  			const activitiesList = props.activities.map(function(activity, index) {
-  				return <li key={index}>{activity}</li>
-  			});
-  			return (
-  				<div>
-  					<ul>{activitiesList}</ul>
-  				</div>
-  			)
-  		}
-  */
+    function Activities(props) {
+    const activitiesList = props.activities.map(function(activity, index) {
+    return <li key={index}>{activity}</li>
+    });
+    return (
+    <div>
+    	<ul>{activitiesList}</ul>
+    </div>
+    )
+    }
+    */
 
-    var fragment = document.createDocumentFragment();
     var activitiesContainer = document.createElement("div");
     var list = document.createElement("ul");
     state.activities.forEach(function(activity, index) {
@@ -229,11 +228,13 @@ function _toConsumableArray(arr) {
       list.appendChild(listItem);
     });
     activitiesContainer.appendChild(list);
-    fragment.appendChild(activitiesContainer);
     if (document.querySelector(".activities div")) {
-      into.replaceChild(fragment, document.querySelector(".activities div"));
+      into.replaceChild(
+        activitiesContainer,
+        document.querySelector(".activities div")
+      );
     } else {
-      into.appendChild(fragment);
+      into.appendChild(activitiesContainer);
     }
 
     //		$('.results').slideDown(300);

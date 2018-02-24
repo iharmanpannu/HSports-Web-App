@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:700|Mukta+Malar");
+@import url("https://fonts.googleapis.com/css?family=Rammetto+One");
 
 /* font-family: 'Mukta Malar', sans-serif;
-
+font-family: 'Rammetto One', cursive;
     font-family: 'Lato', sans-serif; */
 
 :root {
   --colorWhite: #fff;
   --colorOrange: #f89156;
   --colorCream: #fdf7f2;
-  --colorGray: #333233;
+  --colorGray: #191819;
 
   --fontHeadings: "Lato", sans-serif;
   --fontNormal: "Mukta Malar", sans-serif;
@@ -28,8 +29,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: var(--colorGray);
-  background-color: var(--colorCream);
+  color: var(--colorWhite);
+  background-color: var(--colorGray);
   font-family: var(--fontNormal);
   font-size: 1.8rem;
   line-height: 160%;
@@ -73,6 +74,18 @@ em {
   font-weight: 500;
   color: var(--colorOrange);
   font-style: normal;
+}
+
+#logo {
+  font-size: 1.5em;
+  color: var(--colorWhite);
+  font-family: "Rammetto One", cursive;
+  text-shadow: 0 0 1px var(--colorGray);
+  text-decoration: none;
+  cursor: auto;
+}
+#logo span {
+  color: var(--colorOrange);
 }
 
 .header {
@@ -146,6 +159,10 @@ em {
 .nav {
   margin-top: 1.75rem;
   /* navelements */
+}
+.navbar {
+  display: flex;
+  justify-content: center;
 }
 
 .nav .nav-elements .branding {
@@ -382,12 +399,13 @@ em {
   -webkit-align-items: flex-end;
   -ms-flex-align: end;
   align-items: flex-end;
+
   background: -webkit-linear-gradient(top, transparent, var(--colorGray)),
     url(../images/backgrounds/discthrower.jpg);
   background: linear-gradient(180deg, transparent, var(--colorGray)),
     url(../images/backgrounds/discthrower.jpg);
   background-repeat: no-repeat;
-  /* background-position: center; */
+  background-position: center;
   background-size: cover;
   height: 50vh;
   max-height: 800px;
@@ -404,9 +422,20 @@ em {
   line-height: 110%;
   margin-top: 3rem;
 }
-
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-container li {
+  list-style: none;
+  text-decoration: none;
+  padding: 0 1em;
+}
 .section {
   min-height: 40vh;
+  max-width: 1024px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -444,23 +473,7 @@ em {
 }
 
 #history {
-  background-color: var(--colorCream);
-}
-
-/* #history .headline {
-  color: var(--colorGray);
-} */
-
-#products .imageheader {
-  background: -webkit-linear-gradient(top, transparent, transparent),
-    url(../images/backgrounds/swimming.jpg);
-  background: linear-gradient(180deg, transparent, transparent),
-    url(../images/backgrounds/swimming.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  height: 100vh;
-  max-height: auto;
+  /* background-color: var(--colorGray); */
 }
 
 #products .product-list {
@@ -482,9 +495,9 @@ em {
   color: var(--colorCream);
   overflow: hidden;
   width: 50%;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  opacity: 0.8;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.9;
   /*.product-name*/
 }
 
@@ -550,17 +563,17 @@ em {
   }
 }
 
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
   #products .product-list .product-item {
     width: 25%;
   }
-}
+} */
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   #products .product-list .product-item {
     width: 16.66667%;
   }
-}
+} */
 
 /* products*/
 
@@ -568,27 +581,27 @@ em {
   font-size: 2rem;
 } */
 
-#guarantee .imageheader {
+/* #guarantee .imageheader {
   background: -webkit-linear-gradient(top, transparent, var(--colorGray)),
     url(../images/backgrounds/cycling.jpg);
-  background: linear-gradient(180deg, transparent, rgba(255, 240, 224, 0.76)),
+  background: linear-gradient(180deg, transparent, var(--colorGray)),
     url(../images/backgrounds/cycling.jpg);
   background-repeat: no-repeat;
-  background-position: bottom;
   background-size: cover;
   height: 100vh;
   max-height: 60vh;
-}
+} */
 
 #people {
-  background-color: var(--colorCream);
+  background-color: var(--colorWhite);
+  /* color: var(--colorWhite); */
   /*.people-cards*/
 }
 
 #people .imageheader {
-  background: -webkit-linear-gradient(top, transparent, var(--colorCream)),
+  background: -webkit-linear-gradient(top, transparent, var(--colorGray)),
     url(../images/backgrounds/soccer.jpg);
-  background: linear-gradient(180deg, transparent, var(--colorCream)),
+  background: linear-gradient(180deg, transparent, var(--colorGray)),
     url(../images/backgrounds/soccer.jpg);
   background-repeat: no-repeat;
   background-position: top;
@@ -603,7 +616,7 @@ em {
 } */
 
 #people .people-cards .person-card {
-  background: hsla(0, 0%, 100%, 0.2);
+  background: var(--colorGray);
   box-shadow: 0 0 10px rgba(104, 104, 104, 0.2);
   border-radius: 20px;
   margin-bottom: 3rem;
@@ -611,7 +624,7 @@ em {
   transition: all 0.2s ease-in;
   -webkit-transform: scale(0.9);
   transform: scale(0.9);
-  opacity: 0.8;
+  opacity: 0.9;
   /*.card-text*/
 }
 
@@ -623,7 +636,7 @@ em {
 #people .people-cards .person-card .card-info .card-name {
   font-size: 2rem;
   line-height: 110%;
-  color: var(--colorOrange);
+  color: var(--colorGray);
 }
 
 #people .people-cards .person-card .card-info .card-title {
@@ -648,8 +661,8 @@ em {
 }
 
 #people .people-cards .person-card:hover {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
+  -webkit-transform: scale(1);
+  transform: scale(1);
   opacity: 1;
 }
 

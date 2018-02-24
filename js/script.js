@@ -36,13 +36,6 @@
       const location = document.querySelector("#location").value;
       //		$('#location').val('');
       document.querySelector("#location").value = "";
-      /*
-		$.get(url + location + '&appid=' + apiKey).done(function(response) {
-			updateUISuccess(response);
-		}).fail(function() {
-			updateUIFailure();
-		});
-*/
 
       fetch(`${url + location}&appid=${apiKey}`)
         .then(response => response.json())
@@ -57,7 +50,7 @@
   );
 
   // update list of sports when user selects a different category (solo/team/all)
-  //$('.options div').on('click', updateActivityList);
+
   document.querySelectorAll(".options div").forEach(el => {
     el.addEventListener("click", updateActivityList, false);
   });
@@ -76,32 +69,17 @@
       city: response.name
     };
 
-    //		const $into = $('.conditions')[0];
     const into = document.querySelector(".conditions");
-
-    //		ReactDOM.render(<Forecast {...state} />, $into);
-    //		ReactDOM.render(<Forecast {...state} />, into);
-
-    /*
-		function Forecast(props) {
-			return (
-				<div>
-					<p className="city">{props.city}</p>
-					<p>{props.degCInt}&#176; C / {props.degFInt}&#176; F <img src={props.icon} alt={props.condition} /></p>
-				</div>
-			)
-		}
-*/
 
     let container = document.createElement("div");
     let cityPara = document.createElement("p");
     cityPara.setAttribute("class", "city");
     cityPara.textContent = state.city;
     let conditionsPara = document.createElement("p");
-    //		conditionsPara.textContent = state.degCInt + '\u00B0 C / ' + state.degFInt + '\u00B0 F';
-    conditionsPara.textContent = `${state.degCInt}\u00B0 C / ${
-      state.degFInt
-    }\u00B0 F`;
+
+    conditionsPara.textContent = `${state.degCInt}\u00B0 C / 
+    ${state.degFInt}\u00B0 F`;
+    // Icon image
     let iconImage = document.createElement("img");
     iconImage.setAttribute("src", state.icon);
     iconImage.setAttribute("alt", state.condition);
@@ -119,31 +97,22 @@
 
   // handle selection of a new category (team/solo/all)
   function updateActivityList(event) {
-    //		if (event !== undefined && $(this).hasClass('selected')) {
     if (event !== undefined && event.target.classList.contains("selected")) {
       // if the 'event' parameter is defined, then a tab has been clicked; if not, then this is the
       //   default case and the view simply needs to be updated
       // if the clicked tab has the class 'selected', then no need to change location of 'selected' class
       //   or change the DOM
       return true;
-      //		} else if (event !== undefined && !$(this).hasClass('selected')) {
     } else if (
       event !== undefined &&
       !event.target.classList.contains("selected")
     ) {
-      // if the 'event' parameter is defined, then a tab has been clicked
-      // if the clicked tab does not have the class 'selected', then location of 'selected' class must be added
-      //   to the clicked element and removed from its siblings
-      //			category = $(this).attr('id');
       category = event.target.id;
-
-      //			$('.options div').removeClass('selected');
 
       document.querySelectorAll(".options div").forEach(el => {
         el.classList.remove("selected");
       });
 
-      //			$(this).addClass('selected');
       event.target.classList.add("selected");
     }
 
@@ -167,24 +136,7 @@
       }
     }
 
-    //		const $into = $('.activities')[0];
     const into = document.querySelector(".activities");
-
-    //		ReactDOM.render(<Activities {...state} />, $into);
-    //		ReactDOM.render(<Activities {...state} />, into);
-
-    /*
-		function Activities(props) {
-			const activitiesList = props.activities.map(function(activity, index) {
-				return <li key={index}>{activity}</li>
-			});
-			return (
-				<div>
-					<ul>{activitiesList}</ul>
-				</div>
-			)
-		}
-*/
 
     let activitiesContainer = document.createElement("div");
     let list = document.createElement("ul");
@@ -204,13 +156,11 @@
       into.appendChild(activitiesContainer);
     }
 
-    //		$('.results').slideDown(300);
     document.querySelector(".results").classList.add("open");
   }
 
   // handle ajax failure
   function updateUIFailure() {
-    //		$(".conditions").text("Weather information unavailable");
     document.querySelector(".conditions").textContent =
       "Weather information unavailable";
   }

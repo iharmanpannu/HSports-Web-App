@@ -7,7 +7,7 @@
 :root {
   --colorWhite: #fff;
   --colorOrange: #f89156;
-  --colorCream: #fff0e0;
+  --colorCream: #fdf7f2;
   --colorGray: #333233;
 
   --fontHeadings: "Lato", sans-serif;
@@ -163,7 +163,6 @@ em {
 }
 
 .nav .nav-elements .navbar a {
-  font-weight: 600;
   color: var(--colorWhite);
   text-decoration: none;
   padding: 0 1rem;
@@ -370,7 +369,7 @@ em {
 /* nav */
 
 .footer {
-  background-color: #312a10;
+  background-color: var(--colorGray);
   color: var(--colorCream);
   padding: 0 0 5em;
   line-height: 100%;
@@ -383,14 +382,14 @@ em {
   -webkit-align-items: flex-end;
   -ms-flex-align: end;
   align-items: flex-end;
-  background: -webkit-linear-gradient(top, transparent, #312a10),
+  background: -webkit-linear-gradient(top, transparent, var(--colorGray)),
     url(../images/backgrounds/discthrower.jpg);
-  background: linear-gradient(180deg, transparent, #312a10),
+  background: linear-gradient(180deg, transparent, var(--colorGray)),
     url(../images/backgrounds/discthrower.jpg);
   background-repeat: no-repeat;
-  background-position: center center;
+  /* background-position: center; */
   background-size: cover;
-  height: 100vh;
+  height: 50vh;
   max-height: 800px;
 }
 
@@ -582,14 +581,14 @@ em {
 }
 
 #people {
-  background-color: #fff0e0;
+  background-color: var(--colorCream);
   /*.people-cards*/
 }
 
 #people .imageheader {
-  background: -webkit-linear-gradient(top, transparent, #fff0e0),
+  background: -webkit-linear-gradient(top, transparent, var(--colorCream)),
     url(../images/backgrounds/soccer.jpg);
-  background: linear-gradient(180deg, transparent, #fff0e0),
+  background: linear-gradient(180deg, transparent, var(--colorCream)),
     url(../images/backgrounds/soccer.jpg);
   background-repeat: no-repeat;
   background-position: top;
@@ -605,7 +604,7 @@ em {
 
 #people .people-cards .person-card {
   background: hsla(0, 0%, 100%, 0.2);
-  box-shadow: 0 0 10px rgba(248, 146, 86, 0.4);
+  box-shadow: 0 0 10px rgba(104, 104, 104, 0.2);
   border-radius: 20px;
   margin-bottom: 3rem;
   -webkit-transition: all 0.2s ease-in;
@@ -624,7 +623,7 @@ em {
 #people .people-cards .person-card .card-info .card-name {
   font-size: 2rem;
   line-height: 110%;
-  color: #d14348;
+  color: var(--colorOrange);
 }
 
 #people .people-cards .person-card .card-info .card-title {
@@ -644,7 +643,7 @@ em {
 }
 
 #people .people-cards .person-card .card-text em {
-  color: #f2a82d;
+  color: var(--colorOrange);
   font-size: 2.2rem;
 }
 
